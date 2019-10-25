@@ -15,6 +15,23 @@ router.get('/', (req, res) => {
         console.log(result); // should see objects wrapped in an array
 
         // render the home view with dynamic data
+        res.render('home', { people: result });
+    })
+})
+
+router.get('/:id', (req, res) => {
+    // should really get the user data here and then fetch it thru, but let's try this asynchronously
+    console.log('at the main route');
+    console.log(req.params.id);
+
+    let query = `SELECT * FROM tbl_bio WHERE profID="${req.params.id}"`;
+
+    sql.query(query, (err, result) => {
+        if (err) { throw err; console.log(err); }
+
+        console.log(result); // should see objects wrapped in an array
+
+        // render the home view with dynamic data
         res.render('home', { data: result });
     })
 })

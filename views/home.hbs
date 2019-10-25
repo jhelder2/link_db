@@ -22,8 +22,7 @@
 
     <div class="team">
         <!-- loop through all our team members and put their info on the page -->
-        {{#each people}}
-
+        {{#each people}} <!-- this is like a  JS forEach loop -->
         <div class="user-panel">
             <img src="images/{{avatar}}" alt="user image" class="u-avatar">
             <a href="{{ID}}" class="u-link">
@@ -33,9 +32,7 @@
             <h1>{{Name}}</h1>
             <h3>{{JobTitle}}</h3>
         </div>
-
-        {{/each}}
-
+        {{/each}}        
     </div>
     </div>
 
